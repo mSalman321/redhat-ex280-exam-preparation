@@ -39,5 +39,6 @@ oc replace -f oauth.yml -n openshift-config
 
 # Check for pod to restart
 oc get clusteroperators.config.openshift.io -n openshift-apiserver authentication
-
+watch oc get po -n openshift-authentication
+oc login -u marina pass
 
