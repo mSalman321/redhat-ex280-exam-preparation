@@ -31,7 +31,7 @@ spec:
     type: HTPasswd
     htpasswd:
       fileData:
-        name: htpass-secret
+        name: (http-users)htpass-secret
 
 # Add admin
 # Replace config
@@ -40,5 +40,5 @@ oc replace -f oauth.yml -n openshift-config
 # Check for pod to restart
 oc get clusteroperators.config.openshift.io -n openshift-apiserver authentication
 watch oc get po -n openshift-authentication
-oc login -u marina pass
+oc login -u marina -p pass
 
