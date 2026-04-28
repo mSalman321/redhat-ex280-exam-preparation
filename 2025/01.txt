@@ -1,5 +1,5 @@
 # Create the users
-
+https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/authentication_and_authorization/configuring-identity-providers
 # htpasswd already installed
 
 # First creates the file "passwd" with "-c"
@@ -16,6 +16,7 @@ oc extract configmap/nginx --to=/tmp
 
 # Create the secret
 oc create secret generic htpass-users --from-file htpasswd=passwd -n openshift-config
+oc create secret generic htpass-secret --from-file=htpasswd=<path_to_users.htpasswd> -n openshift-config
 
 # Add admin privilege to admin user
 oc adm policy add-cluster-role-to-user cluster-admin admin
