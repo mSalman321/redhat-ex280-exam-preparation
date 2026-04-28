@@ -11,9 +11,12 @@ oc adm groups add-users developers marina
 oc adm groups add-users developers ben
 oc adm groups add-users viewers leila
 
+Remove the Capability to Create Projects for All Regular Users
+Removing the self-provisioner cluster role from authenticated users and groups denies permissions for self-provisioning any new projects:
 #Remove permission to create projects
 oc adm policy remove-cluster-role-from-group self-provisioner system:authenticated:oauth
 
+oc adm policy -h 
 #Add rights
 oc adm policy add-role-to-group edit developers
 oc adm policy add-role-to-group view viewers
